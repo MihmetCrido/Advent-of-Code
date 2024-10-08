@@ -8,7 +8,7 @@ This project is a Python script designed to download puzzles from the [Advent of
 - Uses the puzzle title to generate descriptive filenames.
 - Supports downloading all puzzles from a specific year at once.
 - Utilizes a session cookie for authentication to access puzzle pages.
-- New Feature: Added a clean-up command to remove all year folders and subfolders with confirmation to help manage the file system
+- Added a clean-up command to remove all year folders and subfolders with confirmation to help manage the file system
 
 ## Requirements
 - **Python 3.6+**: Make sure you have Python installed on your system.
@@ -21,6 +21,30 @@ If you don't have the necessary packages, you can install them using the followi
 
 ## Setup Instructions
 
+### Using the Automated Setup Script
+To simplify the setup process, we have provided a setup.sh script that handles all the installation steps for you. The script will:
+
+1. Check if Python 3 and pip are installed.
+2. Install the required Python packages (requests, beautifulsoup4, html2text).
+3. Prompt you to enter your Advent of Code session token to create or update the session.json file 
+
+### Running the Setup Script
+
+1. Make the setup script executable by running:
+
+    `chmod +x setup.sh`
+
+2. Execute the setup script:
+
+    `./setup.sh`
+
+3. During the setup process, you will be prompted to enter your Advent of Code session token:
+
+* If you provide a token, it will be saved to a file named `session.json`.
+* If you leave the input blank, the session file will not be modified.
+
+This script streamlines the setup process and ensures that all dependencies are correctly installed and configured.
+
 ### Step 1: Obtain Your Session Cookie
 
 To download the puzzles, you'll need to log into the Advent of Code website and get your session cookie. This is required for authentication.
@@ -31,9 +55,9 @@ To download the puzzles, you'll need to log into the Advent of Code website and 
 4. Find the cookie named `session`.
 5. Copy the value of the `session` cookie.
 
-### Step 2: Create a JSON File for the Session Cookie
+### Step 2: Creating the Session JSON File Manually (Optional)
 
-Create a JSON file named `session.json` in the root directory of this project with the following content:
+If you didn't use the setup script to enter your session token, you can manually modify the JSON file named `session.json` in the root directory of this project with the following content:
 
 ```json
 {

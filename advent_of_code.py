@@ -26,14 +26,14 @@ def slugify(title):
     # Remove non-alphanumeric characters, convert spaces to underscores, and make lowercase
     return re.sub(r'\W+', '_', title.strip().lower())
 
-def download_advent_of_code_day(day, year, session_cookie, quiet=False):
+def download_advent_of_code_day(day, year, session_cookie, verbose=False):
     """Download the puzzle for a specific day and year, and save it as markdown."""
     url = f"https://adventofcode.com/{year}/day/{day}"
     cookies = {'session': session_cookie}
     response = requests.get(url, cookies=cookies)
 
     if response.status_code != 200:
-        if not quiet:
+        if verbose:
             print(f"Failed to retrieve the puzzle for day {day}, year {year}: {response.status_code}")
         return
 
@@ -61,10 +61,10 @@ def download_advent_of_code_day(day, year, session_cookie, quiet=False):
         # Save the markdown to the specified file
         with open(file_path, 'w', encoding='utf-8') as file:
             file.write(markdown)
-        if not quiet:
+        if verbose:
             print(f"Puzzle for day {day}, year {year} saved as markdown at '{file_path}'.")
     else:
-        if not quiet:
+        if verbose:
             print(f"Could not find the puzzle content for day {day}, year {year}.")
 
 def clean_directories():
@@ -90,7 +90,7 @@ def main():
     parser.add_argument('year', type=int, nargs='?', help='The year of the Advent of Code puzzles')
     parser.add_argument('--day', type=int, help='The day of the puzzle (if not specified, downloads all days)')
     parser.add_argument('--session-file', default='session.json', help='Path to the JSON file with the session cookie (default: session.json)')
-    parser.add_argument('--quiet', action='store_true', help='Suppress verbose output for cleaner logs')
+    parser.add_argument('--verbose', action='store_true', help='Enable verbose output for detailed logs')
     parser.add_argument('--clean', action='store_true', help='Remove all year folders and subfolders in the current directory')
 
     args = parser.parse_args()
@@ -113,11 +113,11 @@ def main():
 
     # Check if the day is specified; if not, download all days for that year
     if args.day:
-        download_advent_of_code_day(day=args.day, year=args.year, session_cookie=session_cookie, quiet=args.quiet)
+        download_advent_of_code_day(day=args.day, year=args.year, session_cookie=session_cookie, verbose=args.verbose)
     else:
         # Use tqdm to show a progress bar while downloading all days
         for day in tqdm(range(1, 26), desc=f"Downloading puzzles for {args.year}", unit="day"):
-            download_advent_of_code_day(day=day, year=args.year, session_cookie=session_cookie, quiet=args.quiet)
+            download_advent_of_code_day(day=day, year=args.year, session_cookie=session_cookie, verbose=args.verbose)
 
 if __name__ == '__main__':
     main()

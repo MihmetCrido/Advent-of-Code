@@ -25,7 +25,7 @@ If you don't have the necessary packages, you can install them using the followi
 To simplify the setup process, we have provided a setup.sh script that handles all the installation steps for you. The script will:
 
 1. Check if Python 3 and pip are installed.
-2. Install the required Python packages (requests, beautifulsoup4, html2text).
+2. Install the required Python packages (requests, beautifulsoup4, html2text, tqdm).
 3. Prompt you to enter your Advent of Code session token to create or update the session.json file 
 
 ### Running the Setup Script
@@ -106,11 +106,11 @@ python advent_of_code.py <year> [--day <day>] [--session-file <session-file>]
     
     This command will permanently delete all year folders and their subfolders in the current directory after a confirmation prompt.
 
-5. **Suppress verbose output with the `--quiet` flag**:
+5. **Enable verbose output with the `--verbose` flag**:
 
-    `python advent_of_code.py 2023 --day 5 --quiet`
+    `python advent_of_code.py 2023 --day 5 --verbose`
 
-    This command will download the puzzle for day 5 of the year 2023 without printing detailed status messages to the terminal.
+    This command will download the puzzle for day 5 of the year 2023 and display detailed status messages in the terminal.
 
 
 ## File and Directory Structure

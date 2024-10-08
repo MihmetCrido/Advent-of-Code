@@ -106,6 +106,13 @@ python advent_of_code.py <year> [--day <day>] [--session-file <session-file>]
     
     This command will permanently delete all year folders and their subfolders in the current directory after a confirmation prompt.
 
+5. **Suppress verbose output with the `--quiet` flag**:
+
+    `python advent_of_code.py 2023 --day 5 --quiet`
+
+    This command will download the puzzle for day 5 of the year 2023 without printing detailed status messages to the terminal.
+
+
 ## File and Directory Structure
 
 The downloaded puzzles will be organized into a directory structure like this:

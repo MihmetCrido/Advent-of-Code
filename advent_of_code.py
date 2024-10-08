@@ -4,6 +4,7 @@ import os
 import re
 import shutil  # Added to support directory removal
 import requests
+from tqdm import tqdm  # Added for the progress bar
 from bs4 import BeautifulSoup
 import html2text
 
@@ -114,7 +115,8 @@ def main():
     if args.day:
         download_advent_of_code_day(day=args.day, year=args.year, session_cookie=session_cookie, quiet=args.quiet)
     else:
-        for day in range(1, 26):
+        # Use tqdm to show a progress bar while downloading all days
+        for day in tqdm(range(1, 26), desc=f"Downloading puzzles for {args.year}", unit="day"):
             download_advent_of_code_day(day=day, year=args.year, session_cookie=session_cookie, quiet=args.quiet)
 
 if __name__ == '__main__':

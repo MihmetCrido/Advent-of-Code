@@ -22,8 +22,8 @@ else
 fi
 
 # Step 3: Install required Python packages
-echo "Installing required Python packages: requests, beautifulsoup4, html2text..."
-pip3 install requests beautifulsoup4 html2text || {
+echo "Installing required Python packages: requests, beautifulsoup4, html2text, tqdm..."
+pip3 install requests beautifulsoup4 html2text tqdm || {
     echo "Failed to install required packages. Please check your Python setup."
     exit 1
 }
@@ -46,4 +46,4 @@ else
 fi
 
 echo "Setup complete! You can now run the Advent of Code downloader script using the command:"
-echo "python3 advent_of_code.py <year> [--day <day>] [--session-file <session-file>] [--clean]"
+echo "python3 advent_of_code.py <year> [--day <day>] [--session-file <session-file>] [--clean] [--quiet]"

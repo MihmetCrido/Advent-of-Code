@@ -12,12 +12,12 @@ This project is a Python script designed to download puzzles from the [Advent of
 
 ## Requirements
 - **Python 3.6+**: Make sure you have Python installed on your system.
-- **Python packages**: `requests`, `beautifulsoup4`, and `html2text` are required for the script to run.
+- **Python packages**: `requests`, `beautifulsoup4`, and `html2text`, `tqdm` are required for the script to run.
 
 ### Installing the Required Packages
 If you don't have the necessary packages, you can install them using the following commands:
 
-`pip install requests beautifulsoup4 html2text`
+`pip install requests beautifulsoup4 html2text tqdm`
 
 ## Setup Instructions
 

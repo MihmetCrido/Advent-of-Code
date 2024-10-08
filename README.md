@@ -8,6 +8,7 @@ This project is a Python script designed to download puzzles from the [Advent of
 - Uses the puzzle title to generate descriptive filenames.
 - Supports downloading all puzzles from a specific year at once.
 - Utilizes a session cookie for authentication to access puzzle pages.
+- New Feature: Added a clean-up command to remove all year folders and subfolders with confirmation to help manage the file system
 
 ## Requirements
 - **Python 3.6+**: Make sure you have Python installed on your system.
@@ -73,6 +74,13 @@ python advent_of_code.py <year> [--day <day>] [--session-file <session-file>]
     `python advent_of_code.py 2023 --session-file my_session.json`
 
     This command uses a custom JSON file (`my_session.json`) to load the session cookie.
+    Clean up all year folders and subfolders:
+
+4. **Clean up all year folders and subfolders**:
+
+    `python advent_of_code.py --clean`
+    
+    This command will permanently delete all year folders and their subfolders in the current directory after a confirmation prompt.
 
 ## File and Directory Structure
 
